@@ -190,7 +190,6 @@ const iconsMarkup = `
 }
 
 
-/* Class List */
-
-
-
+//aggiungere eventlistener alla selezione dove un condizionale mi crea i 4 casi, ogni caso ha una funzione diversa 
+//oppure creo una funzione unica e la adeguo caso per caso??
+//
