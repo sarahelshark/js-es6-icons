@@ -136,8 +136,26 @@ const icons = [
 		color: 'blue'
 	}
 ];
-
 console.log (icons);
 
-/**
- * 
+//seleziono luogo dove stampero le mie icon e racchiudo in costante
+const iconsRowEl = document.querySelector('.container>.row');
+console.log(iconsRowEl);
+
+//creo il div per inserire i miei oggetti, template literal
+const iconsMarkup = `
+    <div class="col">
+     <div class="card">
+            <i class="fa-solid fa-cat"></i>
+            <div class="card-body">
+              <h3> ${icons.name}</h3>
+            </div>
+     </div>
+    </div>
+    `
+console.log(iconsMarkup);
+//creo un ciclo dove inserisco i miei 16 oggetti
+for(let i = 0; i < icons.length; i++ ){
+    
+}
+
