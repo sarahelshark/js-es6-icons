@@ -151,8 +151,8 @@ for(let i = 0; i < icons.length; i++ ){
 const iconsMarkup = `
     <div class="col">
      <div class="card p-5 m-5">
-            <i class="fa-solid fa-cat"></i>
             <div class="card-body">
+              <i class="fa-solid fa-cat"></i>
               <h3> ${icon.name}</h3>
             </div>
      </div>
