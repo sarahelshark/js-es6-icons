@@ -142,20 +142,23 @@ console.log (icons);
 const iconsRowEl = document.querySelector('.container>.row');
 console.log(iconsRowEl);
 
-//creo il div per inserire i miei oggetti, template literal
-const iconsMarkup = `
-    <div class="col">
-     <div class="card">
-            <i class="fa-solid fa-cat"></i>
-            <div class="card-body">
-              <h3> ${icons.name}</h3>
-            </div>
-     </div>
-    </div>
-    `
-console.log(iconsMarkup);
+
 //creo un ciclo dove inserisco i miei 16 oggetti
 for(let i = 0; i < icons.length; i++ ){
-    
+    const icon = icons[i];
+    //console.log(icon);
+    //creo il div per inserire i miei oggetti, template literal
+const iconsMarkup = `
+    <div class="col">
+     <div class="card p-3 m-2">
+            <i class="fa-solid fa-cat"></i>
+            <div class="card-body">
+              <h3> ${icon[name]}</h3>
+            </div>
+     </div>
+    </div>  `
+//console.log(iconsMarkup);
+
+     iconsRowEl.insertAdjacentHTML('beforeend', iconsMarkup);
 }
 
