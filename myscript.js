@@ -150,10 +150,10 @@ for(let i = 0; i < icons.length; i++ ){
     //creo il div per inserire i miei oggetti, template literal
 const iconsMarkup = `
     <div class="col">
-     <div class="card p-3 m-2">
+     <div class="card p-5 m-5">
             <i class="fa-solid fa-cat"></i>
             <div class="card-body">
-              <h3> ${icon[name]}</h3>
+              <h3> ${icon.name}</h3>
             </div>
      </div>
     </div>  `
