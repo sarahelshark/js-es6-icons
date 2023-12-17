@@ -141,18 +141,40 @@ console.log (icons);
 //seleziono luogo dove stampero le mie icon e racchiudo in costante
 const iconsRowEl = document.querySelector('.container>.row');
 console.log(iconsRowEl);
+//per inserire le icone giuste, posso creare una lista di <i></i> che poi inserisco nel mio ciclo (tentativo 1)
+const iconsImgs = [
+    `<i class="fa-solid fa-cat"></i>`,
+    `<i class="fa-solid fa-crow"></i>`,
+    `<i class="fa-solid fa-dog"></i>`,
+    `<i class="fa-solid fa-dove"></i>`,
+    `<i class="fa-solid fa-dragon"></i>`,
+    `<i class="fa-solid fa-horse"></i>`,
+    `<i class="fa-solid fa-hippo"></i>`,
+    `<i class="fa-solid fa-fish"></i>`,
+    `<i class="fa-solid fa-carrot"></i>`,
+    `<i class="fa-solid fa-apple-alt"></i>`,
+    `<i class="fa-solid fa-lemon"></i>`,
+    `<i class="fa-solid fa-pepper-hot"></i>`,
+    `<i class="fa-solid fa-user-astronaut"></i>`,
+    `<i class="fa-solid fa-user-graduate"></i>`,
+    `<i class="fa-solid fa-user-ninja"></i>`,
+    `<i class="fa-solid fa-user-secret"></i>`,
+
+];
+//console.log (iconsImgs);
 
 
 //creo un ciclo dove inserisco i miei 16 oggetti
-for(let i = 0; i < icons.length; i++ ){
+for(let i = 0; i < icons.length, i<iconsImgs.length; i++ ){
     const icon = icons[i];
     //console.log(icon);
+    const imgs = iconsImgs[i];
     //creo il div per inserire i miei oggetti, template literal
 const iconsMarkup = `
     <div class="col">
      <div class="card p-5 m-5">
             <div class="card-body">
-              <i class="fa-solid fa-cat"></i>
+              <div>${imgs}</div>
               <h3> ${icon.name}</h3>
             </div>
      </div>
@@ -162,3 +184,5 @@ const iconsMarkup = `
      iconsRowEl.insertAdjacentHTML('beforeend', iconsMarkup);
 }
 
+
+//se non funziona, aggiungo <i></i> nella mia lista inziiale?(tentativo 3)
