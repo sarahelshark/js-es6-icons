@@ -171,14 +171,26 @@ for(let i = 0; i < icons.length, i<iconsImgs.length; i++ ){
     const imgs = iconsImgs[i];
     //creo il div per inserire i miei oggetti, template literal
 const iconsMarkup = `
-    <div class="col">
-     <div class="card p-5 m-5">
-            <div class="card-body">
+    <div class="col-4">
+     <div class="card p-5 m-3 ratio ratio-1x1 shadow" style="background-color:${icon.color};height: 80%;">
+            <div class="card-bod d-flex flex-column align-items-center justify-content-center;" >
               <div>${imgs}</div>
               <h3> ${icon.name}</h3>
             </div>
      </div>
     </div>  `
+
+    //const colorSelect = document.querySelector('.col');
+    //console.log(colorSelect)
+    console.log(icon.color)
+
+    
 //console.log(iconsMarkup);
      iconsRowEl.insertAdjacentHTML('beforeend', iconsMarkup);
 }
+
+
+/* Class List */
+
+
+
