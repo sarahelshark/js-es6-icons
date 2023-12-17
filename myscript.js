@@ -136,11 +136,11 @@ const icons = [
 		color: 'blue'
 	}
 ];
-console.log (icons);
+//console.log (icons);
 
 //seleziono luogo dove stampero le mie icon e racchiudo in costante
 const iconsRowEl = document.querySelector('.container>.row');
-console.log(iconsRowEl);
+//console.log(iconsRowEl);
 //per inserire le icone giuste, posso creare una lista di <i></i> che poi inserisco nel mio ciclo (tentativo 1)
 const iconsImgs = [
     `<i class="fa-solid fa-cat"></i>`,
@@ -180,9 +180,5 @@ const iconsMarkup = `
      </div>
     </div>  `
 //console.log(iconsMarkup);
-
      iconsRowEl.insertAdjacentHTML('beforeend', iconsMarkup);
 }
-
-
-//se non funziona, aggiungo <i></i> nella mia lista inziiale?(tentativo 3)
