@@ -189,7 +189,15 @@ const iconsMarkup = `
      iconsRowEl.insertAdjacentHTML('beforeend', iconsMarkup);
 }
 
-
 //aggiungere eventlistener alla selezione dove un condizionale mi crea i 4 casi, ogni caso ha una funzione diversa 
+//variabile + event listener al 'change'
+const iconTypeSelect = document.getElementById('iconTypeSelect');
+//gestire il cambiamento della select
+ iconTypeSelect.addEventListener('change', filterIcons);
+
+
 //oppure creo una funzione unica e la adeguo caso per caso??
+function filterIcons() {
+    console.log('it worked');
+}
 //
