@@ -164,27 +164,30 @@ const iconsImgs = [
 //console.log (iconsImgs);
 
 
+
 //creo un ciclo dove inserisco i miei 16 oggetti
 for(let i = 0; i < icons.length, i<iconsImgs.length; i++ ){
     const icon = icons[i];
     //console.log(icon);
     const imgs = iconsImgs[i];
+    
+
+    // creo un identificatore per poter dopo nascondere le card in pagina
+    const cardId = `card-${i}`;
+    
     //creo il div per inserire i miei oggetti, template literal
-const iconsMarkup = `
-    <div class="col-4">
-     <div class="card p-5 m-3 ratio ratio-1x1 shadow" style="background-color:${icon.color};height: 80%;">
+    const iconsMarkup = `
+    <div id="${cardId}" class="col-4">
+
+        <div class="card p-5 m-3 ratio ratio-1x1 shadow" style="background-color:${icon.color};height: 80%;">
             <div class="card-bod d-flex flex-column align-items-center justify-content-center;" >
               <div>${imgs}</div>
               <h3> ${icon.name}</h3>
             </div>
-     </div>
-    </div>  `
+        </div>
+    </div> 
+    `
 
-    //const colorSelect = document.querySelector('.col');
-    //console.log(colorSelect)
-    console.log(icon.color)
-
-    
 //console.log(iconsMarkup);
      iconsRowEl.insertAdjacentHTML('beforeend', iconsMarkup);
 }
@@ -202,22 +205,21 @@ function filterIcons() {
     const selectedType = iconTypeSelect.value;
     //console.log(selectedType);
 
+    //Soluzione più semplice
+    // Ciclo attraverso tutte le card e nascondo quelle che non corrispondono al tipo selezionato
+    for (let i = 0; i < icons.length; i++) {
+      const cardId = `card-${i}`;
+      const card = document.getElementById(cardId);
 
-    let filteredIcons;
-    //se selectedType è 'tutte'
-    if (selectedType === 'all') {
+      if (selectedType === 'all' || icons[i].type === selectedType) {
+        card.style.display = 'block';  // mostra la card se la situazione è quella di default con tutte le carte e/o se le icone sono del tipo selezionato
+      } else {
+        card.style.display = 'none';  // nascondi la card se la situazione è contraria alla situazione descritta sopra
+      }
+      
+     }
 
-        filteredIcons = icons;  //nella variabile ci entrano tuttte le icone 
-
-    } else {  //se selectedType è 'animali', 'vegetali', 'user'
-
-        filteredIcons = icons.filter(function(icon) {
-            return icon.type === selectedType; //nella nuova variabile ci entra  un array formato solo dalle icone selezionate
-        });      
-    }
-   console.log(filteredIcons) //output atteso:array
-   
-
-  
 }
-//
+
+
+
