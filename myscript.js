@@ -21,7 +21,7 @@ Solamente quando la parte logica è completa, ci dedichiamo al css.
 NB: L'esercizio My Team con array di oggetti e questo sulle icone sono due esercizi chiave per poter svolgere la milestone che incombe. Dedicateci del tempo e approfondite gli argometi trattati.
 
 */
-
+/*********************************STRUTTURE DATI************************************************/
 const icons = [
 	{
 		name: 'cat',
@@ -137,26 +137,6 @@ const icons = [
 	}
 ];
 
-/*********************************************************************************/
-function getRandomColor() {
-    // tecnica per generare colori casuali: hashtag davanti concatenato alla cifra autogenerata con math random, moltiplicata per il numero massimo ottenibile con sei cifre esadecimali e convertito con tostring
-    const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-    return randomColor; 
-}
-// Test della funzione di generazione random colori
-//const randomColor = getRandomColor();
-//console.log(randomColor);
-
-// modificare la struttura dati fornita e valorizzare la proprietà "color" in modo dinamico:  per ciascun oggetto nell'array, con forEach
-icons.forEach(icon => {
-    icon.color = getRandomColor();
-});
-/*********************************************************************************/
-
-//seleziono luogo dove stampero le mie icon e racchiudo in costante
-const iconsRowEl = document.querySelector('.container>.row');
-//console.log(iconsRowEl);
-//per inserire le icone giuste, posso creare una lista di <i></i> che poi inserisco nel mio ciclo (tentativo 1)
 const iconsImgs = [
     `<i class="fa-solid fa-cat"></i>`,
     `<i class="fa-solid fa-crow"></i>`,
@@ -176,17 +156,30 @@ const iconsImgs = [
     `<i class="fa-solid fa-user-secret"></i>`,
 
 ];
-//console.log (iconsImgs);
 
+/*****************************FUNZIONE CAMBIO COLORE*********************************************/
+function getRandomColor() {
+    // tecnica per generare colori casuali: hashtag davanti concatenato alla cifra autogenerata con math random, moltiplicata per il numero massimo ottenibile con sei cifre esadecimali e convertito con tostring
+    const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    return randomColor; 
+}
 
+// modificare la struttura dati fornita e valorizzare la proprietà "color" in modo dinamico:  per ciascun oggetto nell'array, con forEach__BONUS 1
+icons.forEach(icon => {
+    icon.color = getRandomColor();
+});
+
+/********************************GENERARE LE CARD************************************************/
+
+//seleziono luogo dove genero le mie icon e racchiudo in costante
+const iconsRowEl = document.querySelector('.container>.row');
 
 //creo un ciclo dove inserisco i miei 16 oggetti
 for(let i = 0; i < icons.length, i<iconsImgs.length; i++ ){
     const icon = icons[i];
-    //console.log(icon);
+    
     const imgs = iconsImgs[i];
     
-
     // creo un identificatore per poter dopo nascondere le card in pagina
     const cardId = `card-${i}`;
     
@@ -202,23 +195,13 @@ for(let i = 0; i < icons.length, i<iconsImgs.length; i++ ){
         </div>
     </div> 
     `
-
-//console.log(iconsMarkup);
-     iconsRowEl.insertAdjacentHTML('beforeend', iconsMarkup);
+     iconsRowEl.insertAdjacentHTML('beforeend', iconsMarkup); //aggiungo le card al luogo deciso precedentemente
 }
 
-//aggiungere eventlistener alla selezione dove un condizionale mi crea i 4 casi, ogni caso ha una funzione diversa 
-//variabile + event listener al 'change'
-const iconTypeSelect = document.getElementById('iconTypeSelect');
-//gestire il cambiamento della select
- iconTypeSelect.addEventListener('change', filterIcons);
-
-//oppure creo una funzione unica e la adeguo caso per caso??
+/******************************FUNZIONE FILTRO CARD*************************************************/
 function filterIcons() {
-    //console.log('it worked');
     //creo costante per estrapolare value che utilizzero in filter() (voglio filtrare il mio array di oggetti)
     const selectedType = iconTypeSelect.value;
-    //console.log(selectedType);
 
     //Soluzione più semplice
     // Ciclo attraverso tutte le card e nascondo quelle che non corrispondono al tipo selezionato
@@ -235,5 +218,14 @@ function filterIcons() {
      }
 
 }
+
+/*******************************TRIGGERO CAMBIAMENTO************************************************/
+
+//variabile + event listener al 'change'
+const iconTypeSelect = document.getElementById('iconTypeSelect');
+//gestire il cambiamento della select direttamente con la mia funzione 
+ iconTypeSelect.addEventListener('change', filterIcons);
+
+
 
 
