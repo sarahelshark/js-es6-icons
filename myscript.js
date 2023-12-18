@@ -216,10 +216,19 @@ function filterIcons() {
       } else {
         card.style.display = 'none';  // nascondi la card se la situazione è contraria alla situazione descritta sopra
       }
-      
+
      }
 
 }
 
 
 
+function getRandomColor() {
+    // tecnica per generare colori casuali: hashtag davanti concatenato alla cifra autogenerata con math random, moltiplicata per il numero massimo ottenibile con sei cifre esadecimali e convertito con tostring
+    const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    return randomColor 
+}
+
+// Test della funzione
+const randomColor = getRandomColor();
+console.log(randomColor);
