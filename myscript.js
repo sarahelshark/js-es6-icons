@@ -195,9 +195,29 @@ const iconTypeSelect = document.getElementById('iconTypeSelect');
 //gestire il cambiamento della select
  iconTypeSelect.addEventListener('change', filterIcons);
 
-
 //oppure creo una funzione unica e la adeguo caso per caso??
 function filterIcons() {
-    console.log('it worked');
+    //console.log('it worked');
+    //creo costante per estrapolare value che utilizzero in filter() (voglio filtrare il mio array di oggetti)
+    const selectedType = iconTypeSelect.value;
+    //console.log(selectedType);
+
+
+    let filteredIcons;
+    //se selectedType è 'tutte'
+    if (selectedType === 'all') {
+
+        filteredIcons = icons;  //nella variabile ci entrano tuttte le icone 
+
+    } else {  //se selectedType è 'animali', 'vegetali', 'user'
+
+        filteredIcons = icons.filter(function(icon) {
+            return icon.type === selectedType; //nella nuova variabile ci entra  un array formato solo dalle icone selezionate
+        });      
+    }
+   console.log(filteredIcons) //output atteso:array
+   
+
+  
 }
 //
