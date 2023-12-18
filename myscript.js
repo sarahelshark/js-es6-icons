@@ -136,7 +136,22 @@ const icons = [
 		color: 'blue'
 	}
 ];
-//console.log (icons);
+
+/*********************************************************************************/
+function getRandomColor() {
+    // tecnica per generare colori casuali: hashtag davanti concatenato alla cifra autogenerata con math random, moltiplicata per il numero massimo ottenibile con sei cifre esadecimali e convertito con tostring
+    const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    return randomColor; 
+}
+// Test della funzione di generazione random colori
+//const randomColor = getRandomColor();
+//console.log(randomColor);
+
+// modificare la struttura dati fornita e valorizzare la proprietà "color" in modo dinamico:  per ciascun oggetto nell'array, con forEach
+icons.forEach(icon => {
+    icon.color = getRandomColor();
+});
+/*********************************************************************************/
 
 //seleziono luogo dove stampero le mie icon e racchiudo in costante
 const iconsRowEl = document.querySelector('.container>.row');
@@ -222,13 +237,3 @@ function filterIcons() {
 }
 
 
-
-function getRandomColor() {
-    // tecnica per generare colori casuali: hashtag davanti concatenato alla cifra autogenerata con math random, moltiplicata per il numero massimo ottenibile con sei cifre esadecimali e convertito con tostring
-    const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-    return randomColor 
-}
-
-// Test della funzione
-const randomColor = getRandomColor();
-console.log(randomColor);
