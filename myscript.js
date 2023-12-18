@@ -1,4 +1,4 @@
-/*
+/* CONSEGNA
 Milestone 1
 Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni icona, in cui è presente il nome dell'icona e l'icona stessa.
 
@@ -21,6 +21,24 @@ Solamente quando la parte logica è completa, ci dedichiamo al css.
 NB: L'esercizio My Team con array di oggetti e questo sulle icone sono due esercizi chiave per poter svolgere la milestone che incombe. Dedicateci del tempo e approfondite gli argometi trattati.
 
 */
+/*********************************DYNAMIC SELECT OPTION*****************************************/
+//seleziono luogo dove genero le mie select e racchiudo in costante
+const containerSelectEl = document.querySelector('.container.mt-4');
+
+ //creo il div per inserire i miei select, template literal
+ const selectMarkup = `
+  <div class="mb-3">
+       <label for="iconTypeSelect" class="form-label">Seleziona il tipo di icona</label>
+       <select id="iconTypeSelect" class="form-select">
+          <option value="all">Tutte</option>
+          <option value="animal">Animali</option>
+          <option value="vegetable">Vegetali</option>
+          <option value="user">User</option>
+       </select>
+  </div>
+  `
+  containerSelectEl.insertAdjacentHTML('beforeend', selectMarkup); //aggiungo le card al luogo deciso precedentemente
+
 /*********************************STRUTTURE DATI************************************************/
 const icons = [
 	{
